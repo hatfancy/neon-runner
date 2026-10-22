@@ -27,11 +27,14 @@
                 </div>
                 <div id="shards-container">SHARDS: <span id="shards">0</span></div>
             </div>
+            <!-- Active Power-ups Bar -->
+            <div id="powerups-bar"></div>
             <div id="combo-container" class="hidden">
                 COMBO x<span id="combo">1</span>
             </div>
             <div id="level-indicator">LEVEL 1</div>
             <div id="near-miss" class="hidden">NEAR MISS!</div>
+            <button id="btn-audio-toggle" class="audio-btn" title="Toggle Music & SFX">🔊 MUSIC: ON</button>
         </div>
 
         <!-- Main Menu -->
@@ -41,6 +44,7 @@
                 <button id="btn-play">PLAY</button>
                 <button id="btn-level-select">LEVEL SELECT</button>
                 <button id="btn-how-to-play">HOW TO PLAY</button>
+                <button id="btn-menu-audio" class="audio-btn">🔊 MUSIC: ON</button>
             </div>
             <div class="stickman-anim"></div>
         </div>
@@ -58,10 +62,15 @@
         <div id="how-to-play-menu" class="screen hidden">
             <h2 class="glow-text">HOW TO PLAY</h2>
             <div class="instructions">
-                <p><strong>SPACE / UP</strong> : Jump</p>
+                <p><strong>SPACE / UP</strong> : Jump (Hold for high jump, double tap for double jump)</p>
                 <p><strong>DOWN</strong> : Slide / Fast Fall</p>
-                <p>Avoid red obstacles. Collect blue shards.</p>
-                <p>Survive to the end of the level.</p>
+                <p><strong>M</strong> : Toggle Synth Music & SFX</p>
+                <div class="powerup-legend">
+                    <p><span class="p-pill p-shield">🛡️ SHIELD</span> : Absorbs one obstacle impact safely</p>
+                    <p><span class="p-pill p-magnet">🧲 MAGNET</span> : Pulls neon shards automatically</p>
+                    <p><span class="p-pill p-slowmo">⏱️ CHRONO</span> : Slows obstacle speeds for precise dashes</p>
+                    <p><span class="p-pill p-hyper">⚡ HYPER BOOST</span> : Invincible supersonic obstacle ramming</p>
+                </div>
             </div>
             <button id="btn-htp-back" class="back-btn">BACK</button>
         </div>
@@ -102,6 +111,7 @@
         </div>
     </div>
     
+    <script src="audio.js"></script>
     <script src="game.js"></script>
 </body>
 </html>

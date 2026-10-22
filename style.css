@@ -145,6 +145,110 @@ canvas {
     animation: pulse 1s infinite alternate;
 }
 
+/* Power-ups HUD bar */
+#powerups-bar {
+    position: absolute;
+    top: 80px;
+    left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 25;
+}
+
+.powerup-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(10, 10, 18, 0.85);
+    border: 1px solid var(--neon-blue);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-family: var(--font-heading);
+    font-size: 14px;
+    letter-spacing: 1px;
+    box-shadow: 0 0 12px rgba(0, 243, 255, 0.3);
+    animation: badgePop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.powerup-badge .time-bar {
+    width: 60px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.powerup-badge .time-fill {
+    height: 100%;
+    background: currentColor;
+    width: 100%;
+    transition: width 0.1s linear;
+}
+
+@keyframes badgePop {
+    0% { transform: scale(0.6) translateX(-30px); opacity: 0; }
+    100% { transform: scale(1) translateX(0); opacity: 1; }
+}
+
+/* Audio Toggle Button */
+.audio-btn {
+    pointer-events: auto;
+    font-family: var(--font-heading);
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background: rgba(10, 10, 24, 0.7);
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue);
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+    transition: all 0.2s ease;
+}
+
+#hud .audio-btn {
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+}
+
+.audio-btn:hover {
+    background: var(--neon-blue);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px var(--neon-blue);
+}
+
+.audio-btn.muted {
+    border-color: #666;
+    color: #888;
+    box-shadow: none;
+}
+
+/* Powerup instructions legend */
+.powerup-legend {
+    margin-top: 15px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 18px;
+}
+
+.p-pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: var(--font-heading);
+}
+
+.p-shield { background: rgba(0, 243, 255, 0.2); color: #00f3ff; border: 1px solid #00f3ff; }
+.p-magnet { background: rgba(255, 204, 0, 0.2); color: #ffcc00; border: 1px solid #ffcc00; }
+.p-slowmo { background: rgba(157, 0, 255, 0.2); color: #bb44ff; border: 1px solid #bb44ff; }
+.p-hyper { background: rgba(255, 0, 128, 0.2); color: #ff007f; border: 1px solid #ff007f; }
+
 #near-miss {
     position: absolute;
     top: 40%;
